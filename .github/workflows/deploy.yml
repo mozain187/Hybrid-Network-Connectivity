@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy Bicep template
         run: |
-          az deployment sub create --subscription 90f930dc-3b4a-442a-98a0-f4e1b7a2989d  --template-file main-s.bicep --location Eastus
+          az deployment sub create --subscription here used to be my subID  --template-file main-s.bicep --location Eastus
