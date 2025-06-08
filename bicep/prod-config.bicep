@@ -35,7 +35,10 @@ resource gateWay 'Microsoft.Network/virtualNetworkGateways@2024-07-01' = {
     ]
     bgpSettings: {
       asn: 65520
-      bgpPeeringAddress: resourceId('Microsoft.Network/virtualNetworkGateways', '${env}-Gateway', 'bgpPeeringAddress')
+       customBgpIpAddresses: [
+        '20.0.1.253'
+      ]
+      
   }
 }
 }
@@ -51,11 +54,12 @@ resource localNetworkGateway 'Microsoft.Network/localNetworkGateways@2024-07-01'
       ]
     }
     bgpSettings:{
-      asn: 65515
+      asn: 65512
       bgpPeeringAddress: onPremBGPAddress
     }
 
     }
   }
+var BGPAddress = gateWay.properties.bgpSettings.customBgpIpAddresses[0]
   output BGPAddress string = gateWay.properties.bgpSettings.bgpPeeringAddress
 
