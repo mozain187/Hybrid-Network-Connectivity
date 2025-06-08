@@ -71,7 +71,7 @@ resource Gateway 'Microsoft.Network/virtualNetworkGateways@2024-07-01' = {
       }
     ]
     bgpSettings:{
-      asn: 65515
+      asn: 65512
       
       
 
