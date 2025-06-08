@@ -43,7 +43,8 @@ This project simulates a hybrid cloud setup by connecting an on-premises data ce
                                                  │  Azure Bastion (Mgmt Access) │
                                                  └──────────────────────────────┘
 
-
+---
+![VsV](./STS.png)
 ---
 
 ## 🚀 Key Features
