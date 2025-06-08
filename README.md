@@ -24,13 +24,13 @@ This project simulates a hybrid cloud setup by connecting an on-premises data ce
 
 ## 🌐 Topology Diagram
 
-On-Premises VNet (10.1.0.0/16)
+On-Premises VNet (10.0.0.0/16)
 |
 VPN Gateway + BGP
 |
 Site-to-Site VPN
 |
-Azure Production VNet (10.0.0.0/16)
+Azure Production VNet (20.0.0.0/16)
 |
 Azure VPN Gateway + BGP
 |
