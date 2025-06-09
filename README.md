@@ -61,8 +61,8 @@ This project simulates a hybrid cloud setup by connecting an on-premises data ce
 ## 📂 Project Structure
 
 ├── bicep/
-| ├── main-f.bicep
-| ├── main-s.bicep
+| ├── LGW1.bicep
+| ├── LGW2.bicep
 │ ├── on-prem.bicep
 │ ├── on-prem-config.bicep
 │ ├── prod.bicep
