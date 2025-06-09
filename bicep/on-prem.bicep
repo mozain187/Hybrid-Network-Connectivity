@@ -45,40 +45,7 @@ resource PublicIP 'Microsoft.Network/publicIPAddresses@2024-07-01' = {
     name: 'Standard'
   }
 }
-resource Gateway 'Microsoft.Network/virtualNetworkGateways@2024-07-01' = {
-  name: '${env}-Gateway'
-  location: location
-  properties: {
-    sku: {
-      name: 'VpnGw1'
-      tier: 'VpnGw1'
-    }
-    gatewayType: 'Vpn'
-    vpnType: 'RouteBased'
-    enableBgp: true
-    ipConfigurations: [
-      {
-        name: 'vnetGatewayConfig'
-        properties: {
-          subnet: {
-            id: onPremVnet.properties.subnets[0].id
-          }
-          publicIPAddress: {
-            id: PublicIP.id
-          }
-          privateIPAllocationMethod:'Dynamic'
-        }
-      }
-    ]
-    bgpSettings:{
-      asn: 65512
-      
-      
 
-    }
-
-  }
-}
 
 
         
