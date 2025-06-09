@@ -20,4 +20,21 @@ jobs:
 
       - name: Deploy Bicep template
         run: |
-          az deployment sub create --subscription here used to be my subID  --template-file main-s.bicep --location Eastus
+
+          az deployment group create --resource-group on-prem-rg --template-file bicep/(myfile here ).bicep
+
+  deploy2:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Bicep template
+        run: |
+          az deployment group create --resource-group prod-rg  --template-file bicep/(myfile here ).bicep  
