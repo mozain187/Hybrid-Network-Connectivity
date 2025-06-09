@@ -3,7 +3,7 @@ param adminName string = 'azureUser'
 param adminPassword string
 param env string = 'prod'
 param location string = resourceGroup().location
-param addressPrefix string 
+
 
 resource prodVnet 'Microsoft.Network/virtualNetworks@2024-07-01' ={
   name: '${env}-Vnet'
@@ -25,6 +25,7 @@ resource prodVnet 'Microsoft.Network/virtualNetworks@2024-07-01' ={
         name: 'ProdSubnet'
         properties: {
           addressPrefix: '20.0.2.0/24'
+          
         }
 
       }
@@ -152,7 +153,7 @@ resource vmNsg 'Microsoft.Network/networkSecurityGroups@2024-07-01' = {
           protocol: 'Tcp'
           access: 'Allow'
           direction: 'Inbound'
-          sourceAddressPrefix: addressPrefix
+          sourceAddressPrefix: '10.0.0.0/16'
           destinationAddressPrefix: nic.properties.ipConfigurations[0].properties.privateIPAddress
           sourcePortRange: '*'
           destinationPortRange: '3389'
@@ -165,7 +166,7 @@ resource vmNsg 'Microsoft.Network/networkSecurityGroups@2024-07-01' = {
           protocol: 'Tcp'
           access: 'Allow'
           direction: 'Inbound'
-          sourceAddressPrefix: addressPrefix
+          sourceAddressPrefix: '10.0.0.0/16'
           destinationAddressPrefix: nic.properties.ipConfigurations[0].properties.privateIPAddress
           sourcePortRange: '*'
           destinationPortRange: '22'
@@ -178,7 +179,7 @@ resource vmNsg 'Microsoft.Network/networkSecurityGroups@2024-07-01' = {
           protocol: 'Icmp'
           access: 'Allow'
           direction: 'Inbound'
-          sourceAddressPrefix: addressPrefix
+          sourceAddressPrefix: '10.0.0.0/16'
           destinationAddressPrefix: nic.properties.ipConfigurations[0].properties.privateIPAddress
           sourcePortRange: '*'
           destinationPortRange: '*'
